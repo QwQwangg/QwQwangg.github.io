@@ -1,3 +1,19 @@
+- id: zheng2026dysem
+  title:
+    en: "DySem: Uncovering Dynamic Semantic Components of Large Language Models for Calculating Semantic Textual Similarity."
+    zh: "DySem: Uncovering Dynamic Semantic Components of Large Language Models for Calculating Semantic Textual Similarity."
+  authors:
+    en: "Kaijie Zheng*, <b>Weiqin Wang*</b>, Yile Wang, and Hui Huang."
+    zh: "Kaijie Zheng*, <b>Weiqin Wang*</b>, Yile Wang, and Hui Huang."
+  venue:
+    en: "Preprint, 2026. (*Equal contribution.)"
+    zh: "Preprint, 2026. (*Equal contribution.)"
+  links:
+    # Add the arXiv URL here after it is available.
+    # - label: arxiv
+    #   url: https://arxiv.org/abs/XXXX.XXXXX
+  bib: /assets/bibtex/zheng2026dysem.bib
+
 - id: chen2026sempa
   title:
     en: "SemPA: Improving Sentence Embeddings of Large Language Models through Semantic Preference Alignment."
