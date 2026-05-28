@@ -54,23 +54,14 @@ translate_url: /cn/index.html
   }
 
   #bibtex-modal-content pre {
-    white-space: pre-wrap;
-    /* Since CSS 2.1 */
-    white-space: -moz-pre-wrap;
-    /* Mozilla, since 1999 */
-    white-space: -pre-wrap;
-    /* Opera 4-6 */
-    white-space: -o-pre-wrap;
-    /* Opera 7 */
-    word-wrap: break-word;
-    /* Internet Explorer 5.5+ */
+    white-space: pre;
     background-color: #f4f4f4;
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 5px;
     max-height: 400px;
     /* Limit height and enable scroll if content is too long */
-    overflow-y: auto;
+    overflow: auto;
   }
 </style>
 
@@ -120,7 +111,7 @@ translate_url: /cn/index.html
     <span class="close-button" onclick="closeBibModal()">&times;</span>
     <h3 style="margin-top: 0;">BibTeX Entry</h3>
     <div id="bibtex-modal-content">
-      <pre>Loading...</pre>
+      <pre onclick="selectBibtexText()">Loading...</pre>
     </div>
     <div style="text-align: right; margin-top: 10px;">
       <button id="copyBtn" onclick="copyBibtex()"
@@ -154,6 +145,15 @@ translate_url: /cn/index.html
   // Function to close modal
   function closeBibModal() {
     modal.style.display = "none";
+  }
+
+  // Select the full BibTeX entry when the text area is clicked
+  function selectBibtexText() {
+    const range = document.createRange();
+    range.selectNodeContents(bibtexModalContent);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
   }
 
   // Copy functionality
