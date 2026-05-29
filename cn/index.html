@@ -101,14 +101,11 @@ translate_url: /index.html
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close-button" onclick="closeBibModal()">&times;</span>
-    <h3 style="margin-top: 0;">BibTeX 引用</h3>
+    <h3 style="margin-top: 0;">BibTeX Record</h3>
     <div id="bibtex-modal-content">
       <pre onclick="selectBibtexText()">加载中...</pre>
     </div>
-    <div style="text-align: right; margin-top: 10px;">
-      <button id="copyBtn" onclick="copyBibtex()"
-        style="padding: 5px 15px; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; background: #f8f9fa;">复制</button>
-    </div>
+    <p style="margin-bottom: 0;"><i>Click anywhere on the box above to highlight complete record</i></p>
   </div>
 </div>
 
@@ -146,21 +143,6 @@ translate_url: /index.html
     const selection = window.getSelection();
     selection.removeAllRanges();
     selection.addRange(range);
-  }
-
-  // Copy functionality
-  function copyBibtex() {
-    const content = bibtexModalContent.textContent;
-    navigator.clipboard.writeText(content).then(() => {
-      const btn = document.getElementById('copyBtn');
-      const originalText = btn.innerText;
-      btn.innerText = '已复制!';
-      setTimeout(() => {
-        btn.innerText = originalText;
-      }, 2000);
-    }).catch(err => {
-      console.error('Failed to copy: ', err);
-    });
   }
 
   // When the user clicks anywhere outside of the modal, close it
