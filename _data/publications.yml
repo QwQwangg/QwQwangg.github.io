@@ -9,9 +9,8 @@
     en: "Preprint, 2026. (*Equal contribution.)"
     zh: "Preprint, 2026. (*Equal contribution.)"
   links:
-    # Add the arXiv URL here after it is available.
-    # - label: arxiv
-    #   url: https://arxiv.org/abs/XXXX.XXXXX
+    - label: arxiv
+      url: https://arxiv.org/abs/2605.29751
   bib: /assets/bibtex/zheng2026dysem.bib
 
 - id: chen2026sempa
