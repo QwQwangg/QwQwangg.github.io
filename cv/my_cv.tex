@@ -1,0 +1,474 @@
+%
+%Academic CV LaTeX Template
+% Author: Dubasi Pavan Kumar
+% LinkedIn: https://www.linkedin.com/in/im-pavankumar/
+% License: MIT
+%
+% For errors, suggestions, or improvements, please contact:
+% Email: pavankumard.pg19.ma@nitp.ac.in
+%
+
+
+
+\documentclass[a4paper,11pt]{article}
+
+% Package imports
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{cfr-lm}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome5}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,0,139}
+
+% Page layout
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+% 成果多了之后，可以改为原来的边框
+% \geometry{left=1.4cm, top=0.8cm, right=1.2cm, bottom=1cm}
+\geometry{left=1.4cm, top=2cm, right=1.2cm, bottom=1cm}
+\setlength{\footskip}{5pt} % Addressing fancyhdr warning
+
+% Hyperlink setup (moved after fancyhdr to address warning)
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+}
+
+% Custom box settings
+\usepackage[most]{tcolorbox}
+\tcbset{
+    frame code={},
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!20,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=-2mm,
+    boxsep=4pt,
+    arc=0pt,outer arc=0pt,
+}
+
+% URL style
+\urlstyle{same}
+
+% Text alignment
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{\hspace{0.5mm}#2 \vspace{-0.5mm}}
+  }
+}
+
+\newcommand{\resumePOR}[3]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1}\hspace{0.3mm}#2 & \textit{\small{#3}} 
+    \end{tabular*}
+    \vspace{-2mm}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeProject}[4]{
+\vspace{0.5mm}\item
+    \begin{tabularx}{0.98\textwidth}[t]{@{}Xr@{}}
+        \textbf{#1} & \textit{\footnotesize{#3}} \\
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabularx}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\tiny$\circ$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm,itemsep=0.5mm]}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+    \vspace{-4mm}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+
+% Commands for icon sizing and positioning
+\newcommand{\socialicon}[1]{\raisebox{-0.05em}{\resizebox{!}{1em}{#1}}}
+\newcommand{\ieeeicon}[1]{\raisebox{-0.3em}{\resizebox{!}{1.3em}{#1}}}
+
+% Font options
+\newcommand{\headerfonti}{\fontfamily{phv}\selectfont} % Helvetica-like (similar to Arial/Calibri)
+\newcommand{\headerfontii}{\fontfamily{ptm}\selectfont} % Times-like (similar to Times New Roman)
+\newcommand{\headerfontiii}{\fontfamily{ppl}\selectfont} % Palatino (elegant serif)
+\newcommand{\headerfontiv}{\fontfamily{pbk}\selectfont} % Bookman (readable serif)
+\newcommand{\headerfontv}{\fontfamily{pag}\selectfont} % Avant Garde-like (similar to Trebuchet MS)
+\newcommand{\headerfontvi}{\fontfamily{cmss}\selectfont} % Computer Modern Sans Serif
+\newcommand{\headerfontvii}{\fontfamily{qhv}\selectfont} % Quasi-Helvetica (another Arial/Calibri alternative)
+\newcommand{\headerfontviii}{\fontfamily{qpl}\selectfont} % Quasi-Palatino (another elegant serif option)
+\newcommand{\headerfontix}{\fontfamily{qtm}\selectfont} % Quasi-Times (another Times New Roman alternative)
+\newcommand{\headerfontx}{\fontfamily{bch}\selectfont} % Charter (clean serif font)
+
+\begin{document}
+\headerfontiii
+
+% Header
+\begin{center}
+    {\Huge\textbf{Weiqin Wang}}
+\end{center}
+\vspace{-4.5mm}
+
+\begin{center}
+    \small
+    {\color{black}{\footnotesize\faPhone*}\hspace*{0.13cm}(+86) 187-6005-3825} |
+    \href{mailto:here1swqw@gmail.com}{{\color{black}{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}here1swqw@gmail.com}} |
+    \href{https://mootutu.github.io/}{{\color{black}{\footnotesize\faGlobe}\hspace*{0.13cm}mootutu.github.io}}
+\end{center}
+\vspace{-4.5mm}
+
+% \begin{center}
+%     \small{
+%     \socialicon{\faLinkedin} \href{https://www.linkedin.com/in/your-profile/}{your-profile} | 
+%     \socialicon{\faGithub} \href{https://github.com/your-username}{your-username} | 
+%     \ieeeicon{\includegraphics[height=1.3em]{ieee_collabratec_icon.png}} \href{https://ieee-collabratec.ieee.org/app/p/your-profile}{your-profile} |
+%     \socialicon{\faTwitter} \href{https://twitter.com/your-handle}{your-handle}
+%     }
+% \end{center}
+% \vspace{-6mm}
+\begin{center}
+    \small
+    {\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}L6-711, Zhizhen Building, Canghai Campus, Shenzhen University, Nanshan District, Shenzhen, China
+\end{center}
+
+% \vspace{-4mm}
+\vspace{2mm}
+
+\section{\textbf{About}}
+\vspace{1mm}
+\small{
+Weiqin Wang is currently a master's student at the College of Computer Science and Software Engineering, Shenzhen University (admitted through the 2025 recommended exemption program), advised by Assistant Professor \href{https://ylwangy.github.io/}{Yile Wang}. His research interests include artificial intelligence, natural language processing, and large language models.
+}
+% \vspace{-1mm}
+\vspace{1mm}
+
+        
+
+\section{\textbf{Education}}
+    \vspace{-0.4mm}
+    \resumeSubHeadingListStart
+
+    \resumeSubheading
+    {Shenzhen University}{Shenzhen, China}
+    {M.Sc. Candidate in Computer Science and Technology}{Sept. 2025 -- June 2028}
+    \text{Advisor: Assistant Prof. \href{https://ylwangy.github.io/}{Yile Wang}}
+
+    \resumeSubheading
+    {Fujian Agriculture and Forestry University}{Fuzhou, China}
+    {B.Sc. in Computer Science and Technology}{Sept. 2021 -- June 2025}
+    \text{Overall ranking: 1/128; GPA ranking: 3/128}
+
+    \resumeSubHeadingListEnd
+
+\vspace{-2mm}
+% \vspace{1mm}
+
+\section{\textbf{Experience}}
+\vspace{-0.4mm}
+  \resumeSubHeadingListStart
+  \resumeSubheading
+      {Shenzhen University, Visual Computing Research Center (VCC)}{Shenzhen, China}
+      {Research Intern}{Oct. 2024 -- Aug. 2025}
+      \resumeItemListStart
+        \item Worked under the supervision of Assistant Prof. \href{https://ylwangy.github.io/}{Yile Wang}.
+        \item Conducted research on large language model reasoning and self-consistency methods.
+      \resumeItemListEnd
+  \resumeSubheading
+      {Shenzhen University}{Shenzhen, China}
+      {Teaching Assistant, Principles of Compilation}{Spring 2025, Spring 2026}
+  \resumeSubHeadingListEnd
+
+\vspace{-2mm}
+
+
+\section{\textbf{Publications}}
+\vspace{-0.4mm}
+\small{(* Equal contribution, \# Corresponding author)}
+\vspace{0.5mm}
+\resumeItemListStart
+  \item Kaijie Zheng*, \textbf{Weiqin Wang*}, Yile Wang, \& Hui Huang. \href{https://arxiv.org/abs/2605.29751}{DySem: Uncovering Dynamic Semantic Components of Large Language Models for Calculating Semantic Textual Similarity}. \textit{arXiv preprint arXiv:2605.29751}.
+  \item Ziyang Chen, Zhenxuan Huang, Yile Wang, \textbf{Weiqin Wang}, Lu Yin, \& Hui Huang. \href{https://arxiv.org/abs/2601.05075}{SemPA: Improving Sentence Embeddings of Large Language Models through Semantic Preference Alignment}. \textit{To appear in Findings of the 64th Annual Meeting of the Association for Computational Linguistics (ACL Findings)}, 2026.
+  \item \textbf{Weiqin Wang}, Yile Wang, Kehao Chen, \& Hui Huang. \href{https://arxiv.org/abs/2512.15146}{Beyond Majority Voting: Towards Fine-grained and More Reliable Reward Signal for Test-Time Reinforcement Learning}. \textit{To appear in Main Conference of the 64th Annual Meeting of the Association for Computational Linguistics (ACL)}, 2026.
+  \item Zhanyu Shen, Sijie Cheng, Zhicheng Guo, \textbf{Weiqin Wang}, Yile Wang, \& Hui Huang. \href{https://arxiv.org/abs/2604.17377}{AnchorMem: Anchored Facts with Associative Contexts for Building Memory in Large Language Models}. \textit{To appear in Findings of the 64th Annual Meeting of the Association for Computational Linguistics (ACL Findings)}, 2026.
+  \item \textbf{Weiqin Wang}, Yile Wang, \& Hui Huang. \href{https://aclanthology.org/2025.findings-acl.744/}{Ranked Voting based Self-Consistency of Large Language Models}. \textit{Findings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL Findings)}, 2025.
+\resumeItemListEnd
+
+\vspace{-2mm}
+\section{\textbf{Honors \& Awards}}
+    \resumeItemListStart
+    \item National Scholarship for Undergraduate Students
+    \item Second Prize, National Undergraduate Mathematical Contest in Modeling
+    \item Meritorious Winner, Mathematical Contest in Modeling/Interdisciplinary Contest in Modeling (MCM/ICM), USA
+    \resumeItemListEnd
+
+\vspace{-2mm}
+\section{\textbf{Skills}}
+\vspace{-0.4mm}
+    \resumeItemListStart
+    \item \textbf{Programming and ML:} Python, PyTorch, SQL Server, C/C++, LaTeX, Markdown
+    \item \textbf{Tools:} Linux, Git, Office
+    \item \textbf{Languages:} Chinese (Native), English (CET-4: 532; CET-6: 509; academic reading, writing, and daily communication)
+    \resumeItemListEnd
+
+% \section{\textbf{Patents and Publications} \hfill \textcolor{darkblue}{\scriptsize C=Conference, J=Journal, P=Patent, S=In Submission, T=Thesis}}
+% \vspace{0.2mm}
+% \small{
+% \begin{enumerate}[leftmargin=*, labelsep=0.5em, align=left, widest={[\textbf{S.1}]}, itemindent=0em, label={\textbf{[\arabic*]}]}]
+% \item[\textbf{[C.1]}] Your Name, et al. (Year). \href{https://doi.org/XX.XXXX/XXXXXXX.XXXX.XXXXXXX}{\textbf{Title of Conference Paper}}. In \textit{Name of Conference Proceedings}, pp. XX-XX. Publisher. Date, Location. DOI: XX.XXXX/XXXXXXX.XXXX.XXXXXXX
+
+% \item[\textbf{[S.1]}] Your Name, et al. (Year). \textbf{Title of Submitted Paper}. Manuscript submitted for publication in \textit{Journal Name}.
+
+% \item[\textbf{[P.1]}] Inventor 1, Your Name, Inventor 3, et al. (Year). \href{https://patentoffice.gov/patent/XXXXXXXXX}{\textbf{Title of Patent}}. Patent Office, Patent No. XXXXXXXXX. Registration Date: Date, Grant Date: Date, Publication Date: Date.
+
+% \item[\textbf{[J.1]}] Author 1, Your Name, Author 3, et al. (Year). \href{https://doi.org/XX.XXXX/XXXXX.XXXX.XXXXXXX}{\textbf{Title of Journal Article}}. \textit{Journal Name}, Vol. XX, Issue X, pp. XXX-XXX. DOI: XX.XXXX/XXXXX.XXXX.XXXXXXX
+% \end{enumerate}
+% }
+
+% \section{\textbf{Skills}}
+% \vspace{-0.4mm}
+%  \resumeHeadingSkillStart
+%   \resumeSubItem{Programming Languages:}
+%     {Language 1, Language 2, Language 3, Language 4, Language 5}
+%   \resumeSubItem{Web Technologies:}
+%     {Technology 1, Technology 2, Technology 3, Technology 4, Technology 5}
+%   \resumeSubItem{Database Systems:}
+%     {Database 1, Database 2, Database 3}
+%   \resumeSubItem{Data Science \& Machine Learning:}
+%     {Tool 1, Tool 2, Tool 3, Tool 4, Tool 5, Tool 6}
+% \resumeSubItem{Cloud Technologies:}
+%     {Cloud Platform 1, Cloud Platform 2, Cloud Platform 3}
+%   \resumeSubItem{DevOps \& Version Control:}
+%     {Tool 1, Tool 2, Tool 3, Tool 4, Tool 5}
+%   \resumeSubItem{Specialized Area:}
+%     {Skill 1, Skill 2, Skill 3, Skill 4}
+%   \resumeSubItem{Mathematical \& Statistical Tools:}
+%     {Tool 1, Tool 2, Tool 3, Tool 4, Tool 5}
+%   \resumeSubItem{Other Tools \& Technologies:}
+%     {Tool 1, Tool 2, Tool 3, Tool 4, Tool 5}
+%   \resumeSubItem{Research Skills:}{Skill 1, Skill 2, Skill 3, Skill 4, Skill 5, Skill 6}
+%  \resumeHeadingSkillEnd
+
+% \section{\textbf{Honors and Awards}}
+% \vspace{-0.4mm}
+% \resumeSubHeadingListStart
+
+% \resumeProject
+%   {Award Name A}
+%   {Awarding Institution/Organization}
+%   {Month Year}
+%   {{}[\href{https://award-link-a.com}{\textcolor{darkblue}{\faIcon{globe}}}]}
+% \resumeItemListStart
+%   \item Brief description of the award and its significance
+%   \item Impact or recognition associated with the award
+% \resumeItemListEnd
+
+% \resumeProject
+%   {Award Name B}
+%   {Awarding Institution/Organization}
+%   {Month Year}
+%   {{}[\href{https://award-link-b.com}{\textcolor{darkblue}{\faIcon{globe}}}]}
+% \resumeItemListStart
+%   \item Brief description of the award and its significance
+%   \item Impact or recognition associated with the award
+% \resumeItemListEnd
+
+% \resumeProject
+%   {Competition Achievement}
+%   {Competition Name, Organizing Body}
+%   {Month Year}
+%   {{}[\href{https://competition-link.com}{\textcolor{darkblue}{\faIcon{globe}}}]}
+% \resumeItemListStart
+%   \item Specific achievement or rank in the competition
+%   \item Skills or abilities demonstrated through this achievement
+% \resumeItemListEnd
+
+% \resumeSubHeadingListEnd
+
+% \vspace{-6mm}
+% \section{\textbf{Leadership Experience}}
+% \vspace{-0.4mm}
+% \resumeSubHeadingListStart
+% \resumeProject
+%   {Leadership Role A}
+%   {Organization/Institution Name}
+%   {Month Year - Month Year}
+%   {{}[\href{https://organization-a-link.com}{\textcolor{darkblue}{\faIcon{globe}}}]}
+% \resumeItemListStart
+%   \item Key responsibility or achievement in this role
+%   \item Quantifiable impact or improvement made during tenure
+%   \item Initiative taken or project led
+% \resumeItemListEnd
+
+% \resumeProject
+%   {Leadership Role B}
+%   {Organization/Institution Name}
+%   {Month Year - Month Year}
+%   {{}[\href{https://organization-b-link.com}{\textcolor{darkblue}{\faIcon{globe}}}]}
+% \resumeItemListStart
+%   \item Key responsibility or achievement in this role
+%   \item Quantifiable impact or improvement made during tenure
+%   \item Initiative taken or project led
+% \resumeItemListEnd
+
+% \resumeSubHeadingListEnd
+
+% \vspace{-6mm}
+
+% \section{\textbf{Volunteer Experience}}
+% \vspace{-0.4mm}
+% \resumeSubHeadingListStart
+% \resumeProject
+%   {Volunteer Role A}
+%   {Organization Name}
+%   {Month Year - Month Year}
+%   {{}[\href{https://volunteer-org-a-link.com}{\textcolor{darkblue}{\faIcon{globe}}}]}
+% \resumeItemListStart
+%   \item Key responsibility or contribution in this role
+%   \item Impact of your volunteer work
+%   \item Skills developed or applied during this experience
+% \resumeItemListEnd
+
+% \resumeProject
+%   {Volunteer Role B}
+%   {Organization Name}
+%   {Month Year - Present}
+%   {{}[\href{https://volunteer-org-b-link.com}{\textcolor{darkblue}{\faIcon{globe}}}]}
+% \resumeItemListStart
+%   \item Key responsibility or contribution in this role
+%   \item Impact of your volunteer work
+%   \item Skills developed or applied during this experience
+% \resumeItemListEnd
+
+% \resumeSubHeadingListEnd
+% \vspace{-6mm}
+
+% \section{\textbf{Professional Memberships}}
+% \vspace{-0.4mm}
+% \resumeSubHeadingListStart
+% \resumePOR{Professional Organization A}
+%     {, Membership ID: XXXXXXXX}
+%     {Month Year - Present}
+% \resumePOR{Professional Organization B}
+%     {, \href{https://membership-certificate-link.com}{Membership ID: XXXXXXXX}}
+%     {Month Year - Present}
+% \resumePOR{Professional Organization C}
+%     {, \href{https://membership-certificate-link.com}{Membership ID: XXXXXXXX}}
+%     {Month Year - Present}
+
+% \resumeSubHeadingListEnd
+% \vspace{-6mm}
+
+% \section{\textbf{Certifications}}
+% \vspace{-0.2mm}
+% \resumeSubHeadingListStart
+% \resumePOR{}{\href{https://certification-link-a.com}{
+% \textbf{Certification A}
+% }}{Month Year}
+% \resumePOR{}{
+% \textbf{Certifying Body:} {{\href{https://certification-link-b.com}{Certification B}}}}{Month Year}
+% \resumePOR{}{
+% \textbf{Certifying Body:} {{\href{https://certification-link-c.com}{Certification C}}}}{Month Year}
+% \resumePOR{}{\href{https://certification-link-d.com}{
+% \textbf{Certification D}
+% }}{Month Year}
+
+% \resumeSubHeadingListEnd
+% \vspace{-6mm}
+
+% \section{\textbf{Additional Information}}
+% \vspace{-0.4mm}
+% \small{
+% \textbf{Languages:} Language A (Proficiency level), Language B (Proficiency level), Language C (Proficiency level)
+
+% \textbf{Interests:} Interest 1, Interest 2, Interest 3, Interest 4
+% }
+% \vspace{-4mm}
+
+
+% \section{\textbf{References}}
+% \vspace{-0.2mm}
+% \small{
+% \begin{enumerate}[leftmargin=*,labelsep=2mm]
+% \item \textbf{Reference Person 1}\\
+%    Job Title, Department\\
+%    Organization/Institution Name\\
+%    Email: email1@example.com\\
+%    Phone: +X-XXX-XXX-XXXX\\
+%    \textit{Relationship: [e.g., Thesis Advisor, Manager, etc.]}
+
+% \item \textbf{Reference Person 2}\\
+%    Job Title, Department\\
+%    Organization/Institution Name\\
+%    Email: email2@example.com\\
+%    Phone: +X-XXX-XXX-XXXX\\
+%    \textit{Relationship: [e.g., Project Supervisor, Colleague, etc.]}
+
+% \item \textbf{Reference Person 3}\\
+%    Job Title, Department\\
+%    Organization/Institution Name\\
+%    Email: email3@example.com\\
+%    Phone: +X-XXX-XXX-XXXX\\
+%    \textit{Relationship: [e.g., Mentor, Collaborator, etc.]}
+% \end{enumerate}
+% }
+
+\end{document}
