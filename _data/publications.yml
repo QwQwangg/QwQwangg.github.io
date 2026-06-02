@@ -11,6 +11,8 @@
   links:
     - label: arxiv
       url: https://arxiv.org/abs/2605.29751
+    - label: code
+      url: https://github.com/szu-tera/DySem
   bib: /assets/bibtex/zheng2026dysem.bib
 
 - id: chen2026sempa
@@ -26,6 +28,8 @@
   links:
     - label: arxiv
       url: https://arxiv.org/abs/2601.05075
+    - label: code
+      url: https://github.com/szu-tera/SemPA
   bib: /assets/bibtex/chen2026sempa.bib
 
 - id: wang2026beyond
@@ -41,6 +45,8 @@
   links:
     - label: arxiv
       url: https://arxiv.org/abs/2512.15146
+    - label: code
+      url: https://github.com/szu-tera/SCOPE
   bib: /assets/bibtex/wang2026beyond.bib
 
 - id: shen2026anchormem
@@ -56,6 +62,8 @@
   links:
     - label: arxiv
       url: https://arxiv.org/abs/2604.17377
+    - label: code
+      url: https://github.com/szu-tera/AnchorMem
   bib: /assets/bibtex/shen2026anchormem.bib
 
 - id: wang2025ranked
@@ -71,4 +79,6 @@
   links:
     - label: pdf
       url: https://aclanthology.org/2025.findings-acl.744.pdf
+    - label: code
+      url: https://github.com/szu-tera/RankedVotingSC
   bib: /assets/bibtex/wang2025ranked.bib
