@@ -1,5 +1,7 @@
 # 仓库维护文档
 
+> **English-only site:** The `/cn/` mirror, `translate_url` fields, and language switcher were removed on 2026-07-16. Any remaining bilingual examples in the detailed legacy guides should not be used for new content.
+
 > 本文档为 mootutu.github.io 个人网站的完整维护手册，适用于从未接触过该项目的新维护者。
 
 ---

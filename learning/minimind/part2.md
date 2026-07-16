@@ -6,7 +6,6 @@ lang: en
 topic: minimind
 order: 2
 topic_url: /learning/minimind.html
-translate_url: /cn/learning/minimind/part2.html
 mathjax: true
 ---
 

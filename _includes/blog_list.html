@@ -1,4 +1,4 @@
-{% assign posts = site.pages | where: "layout", "blog-post-layout" | where: "lang", page.lang | sort: "date" | reverse %}
+{% assign posts = site.pages | where: "layout", "blog-post-layout" | sort: "date" | reverse %}
 
 <div class="blog-posts">
   {% for post in posts %}
@@ -7,19 +7,11 @@
       <h2 class="blog-post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
       <div class="blog-post-meta">
         <span>
-          {% if page.lang == "zh-CN" %}
-          发布日期：{{ post.date | date: "%Y-%m-%d" }}
-          {% else %}
           Published: {{ post.date | date: "%B %-d, %Y" }}
-          {% endif %}
         </span>
         {% if post.reading_time %}
         <span>
-          {% if page.lang == "zh-CN" %}
-          阅读时长：{{ post.reading_time }}
-          {% else %}
           Reading Time: {{ post.reading_time }}
-          {% endif %}
         </span>
         {% endif %}
       </div>
@@ -34,7 +26,7 @@
       </div>
       {% endif %}
       <a href="{{ post.url | relative_url }}" class="read-more">
-        {% if page.lang == "zh-CN" %}阅读全文{% else %}Read More{% endif %}
+        Read More
       </a>
     </div>
     {% if post.cover_image %}

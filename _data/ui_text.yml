@@ -1,11 +1,9 @@
 en:
   home: Home
   blog: Blog
-  learning: Learning
+  paper_reading: Paper Reading
   about: About
   tools: Tools
-  language_name: 中文
-  language_url: /cn/index.html
   bio_include: bio.html
   back_to_blog: "← Back to Blog List"
   author: "Author"
@@ -15,21 +13,3 @@ en:
   category: "Category"
   search_placeholder: "Search..."
   no_results: "No results found"
-
-zh-CN:
-  home: 首页
-  blog: 博客
-  learning: 学习记录
-  about: 关于
-  tools: 工具记录
-  language_name: English
-  language_url: /index.html
-  bio_include: bio-cn.html
-  back_to_blog: "← 返回博客列表"
-  author: "作者"
-  published: "发布日期"
-  reading_time: "阅读时长"
-  minutes: "分钟"
-  category: "分类"
-  search_placeholder: "搜索..."
-  no_results: "未找到相关结果"

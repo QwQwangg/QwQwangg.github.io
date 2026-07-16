@@ -17,7 +17,6 @@
 ### 1. 更新个人简介 (Biography)
 个人简介部分分为两个包含文件：
 - **英文版**: 编辑 `_includes/bio.html`
-- **中文版**: 编辑 `_includes/bio-cn.html`
 
 ### 2. 添加论文 (Publications)
 要添加新的论文：

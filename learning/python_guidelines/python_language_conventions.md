@@ -6,7 +6,6 @@ lang: en
 topic: python
 order: 1
 topic_url: /learning/python.html
-translate_url: /cn/learning/python_guidelines/python_language_conventions.html
 mathjax: false
 ---
 

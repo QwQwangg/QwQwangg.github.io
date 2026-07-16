@@ -4,13 +4,9 @@ permalink: /search.json
 ---
 [
 {% assign blog_pages = site.pages | where: "layout", "blog-post-layout" %}
-{% if site.hide_learning %}
-{% assign pages_to_index = blog_pages %}
-{% else %}
-{% assign learning_pages = site.pages | where: "layout", "learning-post-layout" %}
-{% assign topic_pages = site.pages | where: "layout", "learning-topic-layout" %}
-{% assign pages_to_index = blog_pages | concat: learning_pages | concat: topic_pages %}
-{% endif %}
+{% assign paper_pages = site.pages | where: "layout", "learning-post-layout" | where: "topic", "paper-reading" %}
+{% assign paper_topic_pages = site.pages | where: "layout", "learning-topic-layout" | where: "topic", "paper-reading" %}
+{% assign pages_to_index = blog_pages | concat: paper_pages | concat: paper_topic_pages %}
 
 {% assign all_docs = site.posts | concat: pages_to_index %}
 
@@ -23,7 +19,6 @@ permalink: /search.json
 "tags" : "{{ doc.tags | join: ', ' }}",
 "url" : "{{ site.baseurl }}{{ doc.url }}",
 "date" : "{{ doc.date | date: '%B %-d, %Y' }}",
-"lang" : "{% if doc.lang %}{{ doc.lang }}{% elsif doc.url contains '/cn/' %}zh-CN{% else %}en{% endif %}",
 "content" : {% if doc.description %}{{ doc.description | strip_html | strip_newlines | jsonify }}{% elsif doc.intro %}{{
 doc.intro | strip_html | strip_newlines | jsonify }}{% else %}{{ doc.content | strip_html | strip_newlines |
 truncatewords: 50 | jsonify }}{% endif %}

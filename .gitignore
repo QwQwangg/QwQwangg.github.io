@@ -1,6 +1,7 @@
 # macos
 .DS_Store
 .bundle/
+_site/
 
 # latex build artifacts
 *.aux

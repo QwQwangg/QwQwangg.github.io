@@ -402,7 +402,7 @@
 <nav class="navbar">
   <div class="navbar-container">
     <!-- Brand with Typing Cursor -->
-    <a href="{% if page.lang == 'zh-CN' %}/cn/index.html{% else %}/index.html{% endif %}" class="navbar-brand">Weiqin
+    <a href="/index.html" class="navbar-brand">Weiqin
       Wang</a>
 
     <!-- Center GIF - Secret entrance to maintenance page -->
@@ -418,31 +418,16 @@
     </button>
 
     <ul class="navbar-menu" id="navbar-menu">
-      {% assign ui = site.data.ui_text[page.lang] %}
-      {% if page.lang == 'zh-CN' %}
-      <li class="navbar-item"><a href="/cn/index.html"
-          class="navbar-link {% if page.url == '/cn/index.html' %}active{% endif %}">{{ ui.home }}</a></li>
-      <li class="navbar-item"><a href="/cn/blog.html"
-          class="navbar-link {% if page.url contains '/cn/blog' %}active{% endif %}">{{ ui.blog }}</a></li>
-      {% unless site.hide_learning %}
-      <li class="navbar-item"><a href="/cn/learning.html"
-          class="navbar-link {% if page.url == '/cn/learning.html' %}active{% endif %}">{{ ui.learning }}</a></li>
-      {% endunless %}
-      <li class="navbar-item"><a href="/cn/about.html"
-          class="navbar-link {% if page.url == '/cn/about.html' %}active{% endif %}">{{ ui.about }}</a></li>
-      {% else %}
+      {% assign ui = site.data.ui_text.en %}
       <li class="navbar-item"><a href="/index.html"
           class="navbar-link {% if page.url == '/index.html' %}active{% endif %}">{{ ui.home }}</a></li>
       <li class="navbar-item"><a href="/blog.html"
-          class="navbar-link {% if page.url contains '/blog' and page.url != '/cn/blog.html' %}active{% endif %}">{{
+          class="navbar-link {% if page.url contains '/blog' %}active{% endif %}">{{
           ui.blog }}</a></li>
-      {% unless site.hide_learning %}
-      <li class="navbar-item"><a href="/learning.html"
-          class="navbar-link {% if page.url == '/learning.html' %}active{% endif %}">{{ ui.learning }}</a></li>
-      {% endunless %}
+      <li class="navbar-item"><a href="/learning/paper-reading.html"
+          class="navbar-link {% if page.url contains '/learning/paper-reading' %}active{% endif %}">{{ ui.paper_reading }}</a></li>
       <li class="navbar-item"><a href="/about.html"
           class="navbar-link {% if page.url == '/about.html' %}active{% endif %}">{{ ui.about }}</a></li>
-      {% endif %}
       <li class="navbar-item">
         <div class="search-container">
           <input type="text" id="search-input" class="search-input" placeholder="{{ ui.search_placeholder }}"
@@ -487,9 +472,6 @@
       });
     }
 
-    // Detect current page language
-    const currentLang = document.documentElement.lang || (window.location.pathname.includes('/cn/') ? 'zh-CN' : 'en');
-
     // Scroll lock functions
     function lockScroll() {
       document.body.style.overflow = 'hidden';
@@ -503,8 +485,7 @@
     fetch('/search.json')
       .then(response => response.json())
       .then(data => {
-        // Filter by current language
-        searchData = data.filter(item => item.lang === currentLang);
+        searchData = data;
       })
       .catch(error => console.error('Error fetching search data:', error));
 
@@ -576,3 +557,4 @@
     });
   });
 </script>
+<script src="/assets/javascripts/theme-toggle.js" defer></script>

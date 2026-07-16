@@ -1,13 +1,7 @@
 - id: zheng2026dysem
-  title:
-    en: "DySem: Uncovering Dynamic Semantic Components of Large Language Models for Calculating Semantic Textual Similarity."
-    zh: "DySem: Uncovering Dynamic Semantic Components of Large Language Models for Calculating Semantic Textual Similarity."
-  authors:
-    en: "Kaijie Zheng*, <b>Weiqin Wang*</b>, Yile Wang, and Hui Huang."
-    zh: "Kaijie Zheng*, <b>Weiqin Wang*</b>, Yile Wang, and Hui Huang."
-  venue:
-    en: "arXiv Preprint, 2026"
-    zh: "arXiv Preprint, 2026"
+  title: "DySem: Uncovering Dynamic Semantic Components of Large Language Models for Calculating Semantic Textual Similarity."
+  authors: "Kaijie Zheng*, <b>Weiqin Wang*</b>, Yile Wang, and Hui Huang."
+  venue: "arXiv Preprint, 2026"
   links:
     - label: arxiv
       url: https://arxiv.org/abs/2605.29751
@@ -16,15 +10,9 @@
   bib: /assets/bibtex/zheng2026dysem.bib
 
 - id: chen2026sempa
-  title:
-    en: "SemPA: Improving Sentence Embeddings of Large Language Models through Semantic Preference Alignment."
-    zh: "SemPA: Improving Sentence Embeddings of Large Language Models through Semantic Preference Alignment."
-  authors:
-    en: "Ziyang Chen, Zhenxuan Huang, Yile Wang, <b>Weiqin Wang</b>, Lu Yin, and Hui Huang."
-    zh: "Ziyang Chen, Zhenxuan Huang, Yile Wang, <b>Weiqin Wang</b>, Lu Yin, and Hui Huang."
-  venue:
-    en: "To appear in Findings of the 64th Annual Meeting of the Association for Computational Linguistics (<b>ACL Findings</b>), 2026"
-    zh: "To appear in Findings of the 64th Annual Meeting of the Association for Computational Linguistics (<b>ACL Findings</b>), 2026"
+  title: "SemPA: Improving Sentence Embeddings of Large Language Models through Semantic Preference Alignment."
+  authors: "Ziyang Chen, Zhenxuan Huang, Yile Wang, <b>Weiqin Wang</b>, Lu Yin, and Hui Huang."
+  venue: "To appear in Findings of the 64th Annual Meeting of the Association for Computational Linguistics (<b>ACL Findings</b>), 2026"
   links:
     - label: arxiv
       url: https://arxiv.org/abs/2601.05075
@@ -33,15 +21,9 @@
   bib: /assets/bibtex/chen2026sempa.bib
 
 - id: wang2026beyond
-  title:
-    en: "Beyond Majority Voting: Towards Fine-grained and More Reliable Reward Signal for Test-Time Reinforcement Learning."
-    zh: "Beyond Majority Voting: Towards Fine-grained and More Reliable Reward Signal for Test-Time Reinforcement Learning."
-  authors:
-    en: "<b>Weiqin Wang</b>, Yile Wang, Kehao Chen, and Hui Huang."
-    zh: "<b>Weiqin Wang</b>, Yile Wang, Kehao Chen, and Hui Huang."
-  venue:
-    en: "To appear in Main Conference of the 64th Annual Meeting of the Association for Computational Linguistics (<b>ACL</b>), 2026"
-    zh: "To appear in Main Conference of the 64th Annual Meeting of the Association for Computational Linguistics (<b>ACL</b>), 2026"
+  title: "Beyond Majority Voting: Towards Fine-grained and More Reliable Reward Signal for Test-Time Reinforcement Learning."
+  authors: "<b>Weiqin Wang</b>, Yile Wang, Kehao Chen, and Hui Huang."
+  venue: "To appear in Main Conference of the 64th Annual Meeting of the Association for Computational Linguistics (<b>ACL</b>), 2026"
   links:
     - label: arxiv
       url: https://arxiv.org/abs/2512.15146
@@ -50,15 +32,9 @@
   bib: /assets/bibtex/wang2026beyond.bib
 
 - id: shen2026anchormem
-  title:
-    en: "AnchorMem: Anchored Facts with Associative Contexts for Building Memory in Large Language Models."
-    zh: "AnchorMem: Anchored Facts with Associative Contexts for Building Memory in Large Language Models."
-  authors:
-    en: "Zhanyu Shen, Sijie Cheng, Zhicheng Guo, <b>Weiqin Wang</b>, Yile Wang, and Hui Huang."
-    zh: "Zhanyu Shen, Sijie Cheng, Zhicheng Guo, <b>Weiqin Wang</b>, Yile Wang, and Hui Huang."
-  venue:
-    en: "To appear in Findings of the 64th Annual Meeting of the Association for Computational Linguistics (<b>ACL Findings</b>), 2026"
-    zh: "To appear in Findings of the 64th Annual Meeting of the Association for Computational Linguistics (<b>ACL Findings</b>), 2026"
+  title: "AnchorMem: Anchored Facts with Associative Contexts for Building Memory in Large Language Models."
+  authors: "Zhanyu Shen, Sijie Cheng, Zhicheng Guo, <b>Weiqin Wang</b>, Yile Wang, and Hui Huang."
+  venue: "To appear in Findings of the 64th Annual Meeting of the Association for Computational Linguistics (<b>ACL Findings</b>), 2026"
   links:
     - label: arxiv
       url: https://arxiv.org/abs/2604.17377
@@ -67,15 +43,9 @@
   bib: /assets/bibtex/shen2026anchormem.bib
 
 - id: wang2025ranked
-  title:
-    en: "Ranked Voting based Self-Consistency of Large Language Models."
-    zh: "Ranked Voting based Self-Consistency of Large Language Models."
-  authors:
-    en: "<b>Weiqin Wang</b>, Yile Wang, and Hui Huang."
-    zh: "<b>Weiqin Wang</b>, Yile Wang, and Hui Huang."
-  venue:
-    en: "In Findings of the 63rd Annual Meeting of the Association for Computational Linguistics (<b>ACL Findings</b>), 2025"
-    zh: "In Findings of the 63rd Annual Meeting of the Association for Computational Linguistics (<b>ACL Findings</b>), 2025"
+  title: "Ranked Voting based Self-Consistency of Large Language Models."
+  authors: "<b>Weiqin Wang</b>, Yile Wang, and Hui Huang."
+  venue: "In Findings of the 63rd Annual Meeting of the Association for Computational Linguistics (<b>ACL Findings</b>), 2025"
   links:
     - label: pdf
       url: https://aclanthology.org/2025.findings-acl.744.pdf

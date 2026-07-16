@@ -39,12 +39,7 @@
             color: #f472b6 !important;
         }
     </style>
-    <script>
-        // Apply dark mode immediately to prevent flash
-        if (localStorage.getItem('theme_preference') === 'dark') {
-            document.documentElement.classList.add('dark-mode');
-        }
-    </script>
+    {% include theme-init.html %}
     <style>
         /* Immediate dark mode styles for html element to prevent flash */
         html.dark-mode,
@@ -212,39 +207,10 @@
             pointer-events: auto;
         }
 
-        /* Language Switcher Button */
-        #lang-switcher {
-            position: fixed;
-            bottom: 90px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: #2563eb;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        #lang-switcher:hover {
-            transform: translateY(-3px);
-            background-color: #1d4ed8;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
         /* Dark Mode Toggle Button */
         #dark-mode-toggle {
             position: fixed;
-            bottom: 150px;
+            bottom: 90px;
             right: 30px;
             width: 50px;
             height: 50px;
@@ -280,7 +246,6 @@
             }
 
             #back-to-top,
-            #lang-switcher,
             #dark-mode-toggle {
                 width: 42px;
                 height: 42px;
@@ -289,8 +254,7 @@
             }
 
             #back-to-top { bottom: 20px; }
-            #lang-switcher { bottom: 72px; font-size: 12px; }
-            #dark-mode-toggle { bottom: 124px; font-size: 16px; }
+            #dark-mode-toggle { bottom: 72px; font-size: 16px; }
         }
 
         @media (max-width: 480px) {
@@ -304,7 +268,6 @@
             }
 
             #back-to-top,
-            #lang-switcher,
             #dark-mode-toggle {
                 width: 38px;
                 height: 38px;
@@ -312,8 +275,7 @@
             }
 
             #back-to-top { bottom: 15px; }
-            #lang-switcher { bottom: 60px; font-size: 11px; }
-            #dark-mode-toggle { bottom: 105px; font-size: 14px; }
+            #dark-mode-toggle { bottom: 60px; font-size: 14px; }
         }
 
         /* Dark Mode Styles */
@@ -555,17 +517,17 @@
 <body>
     {% include navigation.html %}
 
-    {% assign ui = site.data.ui_text[page.lang] %}
+    {% assign ui = site.data.ui_text.en %}
 
     <!-- Dark Mode Toggle Button -->
-    <button id="dark-mode-toggle" title="Toggle Dark Mode">
+    <button id="dark-mode-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
         <svg id="dark-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
         <svg id="light-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            style="display: none;">
+            hidden>
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -577,11 +539,6 @@
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
     </button>
-
-    <!-- Language Switcher Button -->
-    <a id="lang-switcher" href="{{ page.translate_url | default: ui.language_url }}" title="{{ ui.language_name }}">
-        {% if page.lang == 'zh-CN' %}EN{% else %}中{% endif %}
-    </a>
 
     <div class="page-layout">
         <!-- TOC Sidebar (outside wrapper) -->
@@ -596,21 +553,13 @@
         <div class="content-wrapper">
             <div class="wrapper">
                 <section>
-                    <a href="{% if page.lang == 'zh-CN' %}/cn/blog.html{% else %}/blog.html{% endif %}"
-                        class="back-link">
-                        {% if page.lang == 'zh-CN' %}← 返回博客{% else %}← Back to Blog{% endif %}
-                    </a>
+                    <a href="/blog.html" class="back-link">← Back to Blog</a>
 
                     <h1 class="blog-title">{{ page.title }}</h1>
 
                     {% assign content_text = content | strip_html %}
-                    {% if page.lang == 'zh-CN' %}
-                    {% assign word_count = content_text | size %}
-                    {% assign words_per_minute = 500 %}
-                    {% else %}
                     {% assign word_count = content_text | number_of_words %}
                     {% assign words_per_minute = 200 %}
-                    {% endif %}
                     {% assign read_time = word_count | divided_by: words_per_minute %}
                     {% if read_time < 1 %}{% assign read_time=1 %}{% endif %} <div class="blog-meta">
                         <span>{{ ui.author }}: {{ page.author | default: "Weiqin Wang" }}</span>
@@ -688,28 +637,6 @@
                 });
             });
 
-            // Dark Mode Toggle
-            const darkModeToggle = document.getElementById('dark-mode-toggle');
-            const darkIcon = document.getElementById('dark-icon');
-            const lightIcon = document.getElementById('light-icon');
-
-            // Apply dark mode class to body (html already has it from head script)
-            if (localStorage.getItem('theme_preference') === 'dark') {
-                document.documentElement.classList.add('dark-mode');
-                document.body.classList.add('dark-mode');
-                darkIcon.style.display = 'none';
-                lightIcon.style.display = 'block';
-            }
-
-            darkModeToggle.addEventListener('click', function () {
-                // Simple toggle - just switch classes
-                document.documentElement.classList.toggle('dark-mode');
-                document.body.classList.toggle('dark-mode');
-                const isDark = document.body.classList.contains('dark-mode');
-                localStorage.setItem('theme_preference', isDark ? 'dark' : 'light');
-                darkIcon.style.display = isDark ? 'none' : 'block';
-                lightIcon.style.display = isDark ? 'block' : 'none';
-            });
         });
     </script>
     <!-- Prism.js Core & Plugins -->
